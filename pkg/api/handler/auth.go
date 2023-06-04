@@ -24,6 +24,13 @@ if err:=c.BindJSON(&user);err!=nil{
 	})
 }
 user.Password=cr.authusecase.HashPassword(user.Password)
+err:=cr.authusecase.Register(c,user)
+if err!=nil{
+	c.JSON(401,gin.H{
+		"message ":"failed to reginster",
+		"error":err.Error(),
+	})
+}
 c.JSON(201,gin.H{
 	"message":"sucessfully registered",
 	"data":user,

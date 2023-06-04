@@ -3,11 +3,12 @@ package db
 import (
 	"database/sql"
 	"log"
-	_"github.com/lib/pq"
+
+	_ "github.com/lib/pq"
 )
 
 const (
-	DBsource = "postgresql://tuser:1234@localhost:5432/sample?sslmode=disable"
+	DBsource = "postgresql://jwt:1234@localhost:5432/jwtauth?sslmode=disable"
 )
 
 func ConnectDB() *sql.DB {

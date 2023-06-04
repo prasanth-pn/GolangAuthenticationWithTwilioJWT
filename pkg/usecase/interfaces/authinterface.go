@@ -1,7 +1,12 @@
 package interfaces
 
-type Authusecase interface {
-	//Register (ctx context.Context,user domain.User)error
-	HashPassword(password string)string
+import (
+	"context"
 
+	"github.com/prasanth-pn/GolangAuthenticationWithTwilioJWT/pkg/domain"
+)
+
+type Authusecase interface {
+	Register(ctx context.Context, user domain.User) error
+	HashPassword(password string) string
 }
