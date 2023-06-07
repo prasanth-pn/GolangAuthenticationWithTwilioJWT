@@ -16,6 +16,8 @@ func NewServeHTTP(AuthHandler *handler.AuthHandler) *ServeHTTP {
 	engine.Use(cors.Default())
 	userapi := engine.Group("/user")
 	userapi.POST("/register", AuthHandler.Register)
+	userapi.GET("/login",AuthHandler.Login)
+	userapi.POST("/otp",AuthHandler.SendOTP)
 
 	return &ServeHTTP{engine}
 }
